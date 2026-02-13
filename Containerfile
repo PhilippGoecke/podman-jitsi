@@ -9,8 +9,8 @@ RUN apt update && apt upgrade -y \
     && rm -rf /var/cache/apt/archives
 
 # Add Jitsi repository
-RUN curl -sL https://download.jitsi.org/jitsi-key.gpg.key | apt-key add - \
-    && echo "deb https://download.jitsi.org stable/" > /etc/apt/sources.list.d/jitsi-stable.list
+RUN curl -sL https://download.jitsi.org/jitsi-key.gpg.key -o /usr/share/keyrings/jitsi-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/" > /etc/apt/sources.list.d/jitsi-stable.list
 
 # Install Jitsi Meet
 RUN apt update \
