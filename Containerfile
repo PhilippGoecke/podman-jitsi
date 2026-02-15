@@ -1,7 +1,7 @@
 FROM debian:trixie AS builder
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV NODE_VERSION=18
+ENV NODE_VERSION=24
 
 WORKDIR /build
 
@@ -13,7 +13,7 @@ RUN apt update && apt install -y \
     curl \
     ca-certificates \
     build-essential \
-    openjdk-17-jdk \
+    openjdk-21-jdk \
     maven \
     python3 \
     && rm -rf /var/lib/apt/lists/*
